@@ -10,6 +10,8 @@ public class HelloProcessing extends PApplet
 		size(500, 500);
 	}
 
+	
+
 	public void setup() {
 		colorMode(HSB);
 		background(0);
