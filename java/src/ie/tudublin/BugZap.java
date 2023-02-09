@@ -55,6 +55,7 @@ public class BugZap extends PApplet
 		if (keyCode == LEFT)
 		{
 			System.out.println("Left arrow pressed");
+			if ()
 			playerX --;
 			
 		}
