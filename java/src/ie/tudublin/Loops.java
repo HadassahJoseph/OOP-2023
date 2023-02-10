@@ -10,6 +10,7 @@ public class Loops extends PApplet {
 	}
 
 	public void setup() {
+		colorMode(HSB);
 	}
 
 
@@ -20,11 +21,41 @@ public class Loops extends PApplet {
 		println(mode);
 	}
 
+	float off;
+
 	public void draw() {
 		background(0);
 		fill(255);
+		noStroke();
 		
 		
+		switch (mode)
+		{
+			case 0:
+				int numCircles = (int) max (1, mouseX / 10.0f);
+				//int numCircles = (int) (mouseX / 10.0f);
+				//int numCircles = 10;
+				float d = width/(float)numCircles;
+				for (int j = 0; j < numCircles ; j ++) {
+					for (int i =0; i < numCircles; i++) {
+						float x = (d* 0.5f) + ( d * i);
+						float y = (d* 0.5f) + ( d * j);//height/ 2;
+						float c = ((i + j) / ((numCircles -1) * 2.0f)) * 255.0f;
+						fill(c + off,255,255);
+						circle(x, y, d);
+					}
+				}
+				off+= ( mouseY / 50.0f);
+				break;
+			case 1:
+
+				break;
+			
+			default: 
+
+				break;
+		}
+
 		
 
 	}
