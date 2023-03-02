@@ -53,10 +53,7 @@ public class Audio1 extends PApplet
         colorMode(HSB);
 
         y = height / 2;
-        smoothedY = y;
-
-
-        
+        smoothedY = y;        
     }
 
     float off = 0;
@@ -70,14 +67,14 @@ public class Audio1 extends PApplet
         float average = 0;
         float sum = 0;
         off += 1;
+
+
         // Calculate sum and average of the samples
         // Also lerp each element of buffer;
         for(int i = 0 ; i < ab.size() ; i ++)
         {
             sum += abs(ab.get(i));
-            lerpBuffer[i] = lerp(lerpBuffer[i], ab.get(i), 0.1f);
-
-
+           // lerpedBuffer[i] = lerp(lerpedBuffer[i], ab.get(i), 0.1f);
         }
         average= sum / (float) ab.size();
 
@@ -129,7 +126,6 @@ public class Audio1 extends PApplet
 
             break;
         }
-        
 
 
         
