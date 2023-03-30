@@ -58,7 +58,7 @@ public class Audio1 extends PApplet
 
     float off = 0;
 
-    float lerpBuffer[] = new float[1024];
+    float lerpedBuffer[] = new float[1024];
 
     public void draw()
     {
@@ -74,7 +74,7 @@ public class Audio1 extends PApplet
         for(int i = 0 ; i < ab.size() ; i ++)
         {
             sum += abs(ab.get(i));
-           // lerpedBuffer[i] = lerp(lerpedBuffer[i], ab.get(i), 0.1f);
+           lerpedBuffer[i] = lerp(lerpedBuffer[i], ab.get(i), 0.1f);
         }
         average= sum / (float) ab.size();
 
@@ -103,7 +103,7 @@ public class Audio1 extends PApplet
                     float c = map(i, 0, ab.size(), 0, 255);
                     stroke(c, 255, 255);
                     //float f = ab.get(i) * halfH;
-                    float f =   lerpBuffer[i] * halfH * 4.0f;
+                    float f =   lerpedBuffer[i] * halfH * 4.0f;
                     line(i, halfH + f, halfH - f, i);                    
                 }           
             break;
@@ -116,7 +116,7 @@ public class Audio1 extends PApplet
                     float c = map(i, 0, ab.size(), mouseX/2, mouseY/2);
                     stroke(c, 255, 255);
                     //float f = ab.get(i) * halfH;
-                    float f =   lerpBuffer[i] * halfH * 4.0f;
+                    float f =   lerpedBuffer[i] * halfH * 4.0f;
                     line(0, i, f, i);      
                     line(width, i, width - f, i);   
                     line(i, 0, i, f);   
